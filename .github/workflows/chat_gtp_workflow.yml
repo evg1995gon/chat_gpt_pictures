@@ -92,10 +92,6 @@ jobs:
             sudo echo DJANGO_SUPERUSER_PASSWORD=${{ secrets.DJANGO_SUPERUSER_PASSWORD }} >> .env
 
             sudo docker compose up -d --build
-            sudo docker compose exec chat_gpt chapythont_gpt manage.py makemigrations
+            sudo docker compose exec chat_gpt python manage.py makemigrations
             sudo docker compose exec chat_gpt python manage.py migrate
             sudo docker compose exec chat_gpt python manage.py collectstatic --no-input
-            ### sudo docker compose exec chat_gpt python manage.py loaddata db.json
-            sudo docker compose exec chat_gpt python manage.py load_csv
-            sudo docker compose exec chat_gpt python manage.py load_tags
-            # sudo docker compose exec chat_gpt python manage.py createsuperuser --noinput --username admin --email admin@gmail.com
