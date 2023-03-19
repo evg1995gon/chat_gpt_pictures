@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>My Object List</title>
+    <style>
+      body {
+        background-color: white;
+        font-family: sans-serif;
+      }
+      
+      h1 {
+        text-align: center;
+      }
+
+      h3 {
+        text-align: center;
+      }
+
+      ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+      }
+      
+      li {
+        width: calc(33.33% - 10px);
+        margin-bottom: 20px;
+        padding: 20px;
+        border: 1px solid #ccc;
+        background-color: #f7f7f7;
+        box-sizing: border-box;
+        text-align: center;
+      }
+      
+      li img {
+        max-width: 100%;
+        height: auto;
+        margin-bottom: 10px;
+      }
+      
+      li h2 {
+        margin-top: 0;
+      }
+    </style>
+  </head>
+  {% load thumbnail %}
+  <body>
+    <h1>Chat-GPT generated</h1>
+    <h3><a href="{% url 'pictures:index'%}">Back to Generation page</a></h3>
+    <ul>
+        {% for object in objects%}
+            <li>
+                {% thumbnail object.picture "1024x1024" crop="center" upscale=True as im %}
+                  <img src="{{ im.url }}">
+                {% endthumbnail %}
+                <h2><a href="{% url 'pictures:detail' object.id %}">{{ object.name }}</a></h2>
+            </li>
+        {% endfor%}
+    </ul>
+  </body>
+</html>

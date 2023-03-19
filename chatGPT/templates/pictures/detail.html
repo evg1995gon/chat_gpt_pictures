@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Picture</title>
+    <style>
+        body {
+          background-color: black;
+          font-family: sans-serif;
+        }
+        
+        h1 {
+          text-align: center;
+        }
+  
+        h3 {
+          text-align: center;
+        }
+        
+        
+        
+        .center {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          height: 100vh;
+        }
+      </style>
+</head>
+<body>
+    {% load thumbnail %}
+    <div class="center">
+      <div>
+        <h1> {{object.name }} </h1>
+        {% thumbnail object.picture "1024x1024" crop="center" upscale=True as im %}
+          <img src="{{ im.url }}">
+        {% endthumbnail %}
+      </div>
+    </div>
+  </body>
+</html>
