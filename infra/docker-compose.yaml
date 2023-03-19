@@ -11,10 +11,10 @@ services:
       - .env
 
   chat_gpt:
-    # image: evg1995gon/chat_gpt:latest
-    build:
-      context: ../chatGPT/
-      dockerfile: ../chatGPT/Dockerfile
+    image: evg1995gon/chat_gpt:latest
+    # build:
+    #   context: ../chatGPT/
+    #   dockerfile: ../chatGPT/Dockerfile
     env_file:
       - .env
     restart: always

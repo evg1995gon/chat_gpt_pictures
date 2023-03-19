@@ -80,6 +80,7 @@ jobs:
             sudo docker volume rm $(docker volume ls -q)
 
             sudo true > .env
+            sudo echo OPENAI_API_KEY=${{ secrets.OPENAI_API_KEY }} >> .env
             sudo echo SECRET_KEY=${{ secrets.SECRET_KEY }} >> .env
             sudo echo DB_ENGINE=${{ secrets.DB_ENGINE }} >> .env
             sudo echo DB_NAME=${{ secrets.DB_NAME }} >> .env
