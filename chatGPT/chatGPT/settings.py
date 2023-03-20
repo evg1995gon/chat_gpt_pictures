@@ -72,6 +72,7 @@ WSGI_APPLICATION = 'chatGPT.wsgi.application'
 #         'NAME': BASE_DIR / 'db.sqlite3',
 #     }
 # }
+
 DATABASES = {
     'default': {
         'ENGINE': os.getenv('DB_ENGINE'),

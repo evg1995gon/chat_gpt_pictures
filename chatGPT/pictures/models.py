@@ -4,7 +4,7 @@ from sorl.thumbnail import ImageField
 
 class Pictures(models.Model):
     name = models.CharField(
-        max_length=200,
+        max_length=1000,
         blank=False,
         null=False,
     )
@@ -26,4 +26,4 @@ class Pictures(models.Model):
         ordering = ('-pub_date',)
 
     def __str__(self):
-        return self.name
+        return self.name[:30] + '...'

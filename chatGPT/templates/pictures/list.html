@@ -56,7 +56,7 @@
                 {% thumbnail object.picture "1024x1024" crop="center" upscale=True as im %}
                   <img src="{{ im.url }}">
                 {% endthumbnail %}
-                <h2><a href="{% url 'pictures:detail' object.id %}">{{ object.name }}</a></h2>
+                <h2><a href="{% url 'pictures:detail' object.id %}">{{ object }}</a></h2>
             </li>
         {% endfor%}
     </ul>
