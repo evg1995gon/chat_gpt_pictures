@@ -8,10 +8,6 @@ from pictures.gpt import GPT_function, creating_picture
 def picture_view(request):
     template = 'pictures/index.html'
     title = 'AI Generated'
-    # context = {
-    #     'form': PictureForm,
-    #     'title': title
-    # }
 
     if request.method != 'POST':
         form = PictureForm()
@@ -67,4 +63,4 @@ def picture_detail(request, id):
 def picture_clear(request):
     pics = Pictures.objects.filter(Q(picture_url='') | Q(picture=''))
     pics.delete()
-    return redirect('pictures:index')
+    return redirect('pictures:list')
