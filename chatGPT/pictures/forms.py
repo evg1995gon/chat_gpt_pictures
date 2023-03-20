@@ -9,7 +9,7 @@ class PictureForm(forms.ModelForm):
         fields = ('name',)
         model = Pictures
         labels = {
-            'name': 'Enter what you wanna draw:',
+            'name': 'Draw me...:',
         }
         
     def validate_name(value):

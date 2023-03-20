@@ -4,27 +4,27 @@
 {% endblock %}
 {% block content %}
 {% load user_filters %}
+
 <div class="my-3 d-flex justify-content-center align-items-center w-100">
   <h1>Welcome to AI generated</h1>
 </div>
-    <div class="card col-lg-6 d-flex justify-content-center align-items-center">
-      <div class="card-body">
-        <form action="#" method="post" enctype="multipart/form-data">
-          {% csrf_token %}
 
-            {% for field in form %} 
-                <h5 class="card-title"> {{ field.label }}</h5>
-                {{ field|addclass:'form-control' }}
+<div class="card col-lg-6 d-flex justify-content-center align-items-center w-100">
+  <div class="card-body">
 
-            {% endfor %}
+    <form action="#" method="post" enctype="multipart/form-data">
+      {% csrf_token %}
 
-          <div class="col-lg-6 col-md-3">
-            <div class="form-group">
-              <input type="submit" class="btn btn-primary btn-block" value="Submit">
-            </div>
-          </div>
-        </form>
+      {% for field in form %} 
+          <h5 class="card-title"> {{ field.label }}</h5>
+          {{ field|addclass:'form-control' }}
+      {% endfor %}
+
+      <div class="form-group">
+        <input type="submit" class="btn btn-primary btn-block" value="Submit">
       </div>
-    </div>
+    </form>
+  </div>
+</div>
     <h1><a href="{% url 'pictures:list' %}" class="btn btn-secondary">Galary</a></h1>
 {% endblock %}
