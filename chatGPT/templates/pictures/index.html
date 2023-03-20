@@ -12,12 +12,12 @@
       
         <form action="#" method="post" enctype="multipart/form-data" class="row">
           {% csrf_token %}
-          <div class="col-lg-6 col-md-9">
+
             {% for field in form %} 
               <div class="form-group">
                 {{ field.label }}
                 {{ field|addclass:'form-control' }}
-              </div>
+
             {% endfor %}
           </div>
           <div class="col-lg-6 col-md-3">
