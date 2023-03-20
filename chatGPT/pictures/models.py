@@ -3,8 +3,7 @@ from sorl.thumbnail import ImageField
 
 
 class Pictures(models.Model):
-    name = models.CharField(
-        max_length=1000,
+    name = models.TextField(
         blank=False,
         null=False,
     )

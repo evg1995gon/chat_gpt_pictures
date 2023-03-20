@@ -17,7 +17,9 @@ def picture_view(request):
     
     form = PictureForm(request.POST)
     init_name = form.data['name']
+    form.data._mutable = True
     form.data['name'] = init_name.strip(' ')
+    form.data._mutable = False
 
     if form.is_valid():
         name = form.data['name']
