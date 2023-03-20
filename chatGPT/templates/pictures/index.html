@@ -9,14 +9,14 @@
   <h1>Welcome to AI generated</h1>
 </div>
 
-<div class="card col-lg-6 d-flex justify-content-center align-items-center w-100">
+<div class="card col-lg-8 col-md-10 d-flex justify-content-center align-items-center w-100">
   <div class="card-body">
 
     <form action="#" method="post" enctype="multipart/form-data">
       {% csrf_token %}
 
       {% for field in form %} 
-          <h5 class="card-title"> {{ field.label }}</h5>
+          <h5 class="my-1 card-title"> {{ field.label }}</h5>
           {{ field|addclass:'form-control' }}
       {% endfor %}
 

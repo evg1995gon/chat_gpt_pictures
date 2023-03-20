@@ -27,4 +27,4 @@ class Pictures(models.Model):
     def __str__(self):
         if len(self.name) < 30:
             return self.name
-        return self.name[:30] + '...'
+        return self.name[:27] + '...'
