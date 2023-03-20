@@ -3,13 +3,13 @@
   {{ title }}
 {% endblock %}
 {% block content %}
-{% load user_filters %} 
-    <h1>Welcome to AI generated</h1>
-    <div class="card">
+{% load user_filters %}
+<div class="d-flex justify-content-center align-items-center w-100">
+  <h1>Welcome to AI generated</h1>
+</div>
+    <div class="card col-lg-6">
       <div class="card-body">
-        <div class="d-flex justify-content-center align-items-center w-100">
-          <h1>Welcome to AI generated</h1>
-        </div>
+      
         <form action="#" method="post" enctype="multipart/form-data" class="row">
           {% csrf_token %}
           <div class="col-lg-6 col-md-9">
