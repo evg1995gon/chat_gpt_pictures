@@ -7,14 +7,17 @@ from pictures.gpt import GPT_function, creating_picture
 
 def picture_view(request):
     template = 'pictures/index.html'
-    context = {
-        'form': PictureForm
-    }
+    title = 'AI Generated'
+    # context = {
+    #     'form': PictureForm,
+    #     'title': title
+    # }
 
     if request.method != 'POST':
         form = PictureForm()
         context = {
-            'form': PictureForm
+            'form': PictureForm,
+            'title': title
         }
         return render(request, template, context)
     
