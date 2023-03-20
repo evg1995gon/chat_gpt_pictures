@@ -13,6 +13,9 @@ def picture_view(request):
 
     if request.method != 'POST':
         form = PictureForm()
+        context = {
+            'form': PictureForm
+        }
         return render(request, template, context)
     
     form = PictureForm(request.POST)

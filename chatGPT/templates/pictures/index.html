@@ -1,66 +1,14 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>My Page</title>
-    <style>
-      body {
-        background-color: white;
-        font-family: sans-serif;
-      }
-      
-      h1 {
-        text-align: center;
-      }
-      
-      form {
-        max-width: 500px;
-        margin: 0 auto;
-        padding: 20px;
-        border: 1px solid #ccc;
-        background-color: #f7f7f7;
-      }
-      
-      label {
-        display: block;
-        margin-bottom: 10px;
-        font-weight: bold;
-      }
-      
-      input[type="text"], input[type="file"] {
-        display: block;
-        margin-bottom: 20px;
-        padding: 10px;
-        border: 1px solid #ccc;
-        width: 100%;
-        box-sizing: border-box;
-        font-size: 16px;
-      }
-      
-      input[type="submit"] {
-        background-color: #4CAF50;
-        color: white;
-        padding: 10px 20px;
-        border: none;
-        border-radius: 5px;
-        font-size: 16px;
-        cursor: pointer;
-      }
-      
-      input[type="submit"]:hover {
-        background-color: #45a049;
-      }
-    </style>
-  </head>
+
+{% extends 'base.html'%}
   
   <body>
     <h1>Welcome to AI generated</h1>
     <form action="#" method="post" enctype="multipart/form-data">
         {% csrf_token %}
-        <label for="name">Enter what you wanna draw:</label>
-        <input type="text" id="name" name="name">
+
+        {{ form.as_p }}
       
       <input type="submit" value="Submit">
     </form>
     <h1><a href="{% url 'pictures:list' %}"> Galary </a></h1>
   </body>
-</html>
