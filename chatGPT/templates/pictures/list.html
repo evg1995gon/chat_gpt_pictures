@@ -7,7 +7,7 @@
         background-color: white;
         font-family: sans-serif;
       }
-      
+
       h1 {
         text-align: center;
       }
@@ -24,7 +24,7 @@
         flex-wrap: wrap;
         justify-content: space-between;
       }
-      
+
       li {
         width: calc(33.33% - 10px);
         margin-bottom: 20px;
@@ -34,13 +34,13 @@
         box-sizing: border-box;
         text-align: center;
       }
-      
+
       li img {
         max-width: 100%;
         height: auto;
         margin-bottom: 10px;
       }
-      
+
       li h2 {
         margin-top: 0;
       }
@@ -51,14 +51,14 @@
     <h1>Chat-GPT generated</h1>
     <h3><a href="{% url 'pictures:index'%}">Back to Generation page</a></h3>
     <ul>
-        {% for object in objects%}
-            <li>
-                {% thumbnail object.picture "1024x1024" crop="center" upscale=True as im %}
-                  <img src="{{ im.url }}">
-                {% endthumbnail %}
-                <h2><a href="{% url 'pictures:detail' object.id %}">{{ object }}</a></h2>
-            </li>
-        {% endfor%}
+      {% for object in objects%}
+        <li>
+          {% thumbnail object.picture "1024x1024" crop="center" upscale=True as im %}
+            <img src="{{ im.url }}">
+          {% endthumbnail %}
+          <h2><a href="{% url 'pictures:detail' object.id %}">{{ object }}</a></h2>
+        </li>
+      {% endfor%}
     </ul>
   </body>
 </html>
