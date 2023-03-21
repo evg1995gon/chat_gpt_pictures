@@ -1,40 +1,15 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <title>Picture</title>
-    <style>
-      body {
-        background-color: black;
-        font-family: sans-serif;
-      }
+{% extends 'base.html'%}
+{% block title %}
+  {{ title }}
+{% endblock %}
+{% block content %}
+  {% load thumbnail %}
 
-      h1 {
-        text-align: center;
-      }
+  <div class="card">
+    {% thumbnail object.picture "1024x1024" crop="center" upscale=True as im %}
+      <img src="{{ im.url }}" class="img-fluid" alt="Responsive image">
+    {% endthumbnail %}
+  </div>
 
-      h3 {
-        text-align: center;
-      }
+{% endblock %}
 
-
-
-      .center {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-      }
-    </style>
-  </head>
-  <body>
-    {% load thumbnail %}
-    <div class="center">
-      <div>
-        <h1> {{object.name }} </h1>
-        {% thumbnail object.picture "1024x1024" crop="center" upscale=True as im %}
-          <img src="{{ im.url }}">
-        {% endthumbnail %}
-      </div>
-    </div>
-  </body>
-</html>

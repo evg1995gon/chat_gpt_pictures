@@ -25,6 +25,6 @@ class Pictures(models.Model):
         ordering = ('-pub_date',)
 
     def __str__(self):
-        if len(self.name) < 30:
+        if len(self.name) < 15:
             return self.name
-        return self.name[:27] + '...'
+        return self.name[:13] + '...'
