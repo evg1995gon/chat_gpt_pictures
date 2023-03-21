@@ -4,12 +4,20 @@
 {% endblock %}
 {% block content %}
   {% load thumbnail %}
-
-  <div class="card">
-    {% thumbnail object.picture "1024x1024" crop="center" upscale=True as im %}
-      <img src="{{ im.url }}" class="img-fluid" alt="Responsive image">
-    {% endthumbnail %}
+  <div class="container my-5">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="card mb-3">
+          {% thumbnail object.picture "1024x1024" crop="center" upscale=True as im %}
+            <img src="{{ im.url }}" class="img-fluid" alt="Responsive image">
+          {% endthumbnail %}
+          <div class="card-body">
+            <h3 class="card-text">{{ object.name }}</h3>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-
+  <a href="{% url 'pictures:index' %}" class="d-flex col-11 btn btn-lg btn-secondary my-5 flex-grow-1 justify-content-center mx-auto">Return to Generation Page</a>
 {% endblock %}
 

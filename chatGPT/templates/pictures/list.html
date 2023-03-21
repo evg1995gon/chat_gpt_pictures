@@ -11,13 +11,13 @@
 
     <div class="row">
       {% for object in objects %}
-        <div class="col-md-4 col-sm-6 mb-4">
+        <div class="col-md-4 col-sm-6 mb-4 d-flex align-items-stretch">
           <div class="card">
             {% thumbnail object.picture "1024x1024" crop="center" upscale=True as im %}
               <img src="{{ im.url }}" class="card-img-top">
             {% endthumbnail %}
-            <div class="card-body d-lg-inline-flex justify-content-between align-items-center">
-              <h3 class="card-title">{{ object }}</h3>
+            <div class="card-body d-flex flex-column">
+              <h4 class="card-title">{{ object }}</h4>
               <a href="{% url 'pictures:detail' object.id %}" class="btn btn-primary">more info</a>
             </div>
           </div>
@@ -25,5 +25,5 @@
       {% endfor %}
     </div>
   </div>
-  <a href="{% url 'pictures:index' %}" class="d-flex btn btn-lg btn-secondary mt-5 flex-grow-1 justify-content-center">Return to Generation Page</a>
+  <a href="{% url 'pictures:index' %}" class="d-flex btn btn-lg btn-secondary my-5 flex-grow-1 justify-content-center col-11 mx-auto">Return to Generation Page</a>
 {% endblock %}
