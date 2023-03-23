@@ -3,6 +3,7 @@ from django.shortcuts import render, redirect, get_object_or_404
 from django.db.models import Q
 from pictures.models import Pictures
 from pictures.gpt import GPT_function, creating_picture
+from django.contrib import messages
 
 
 def picture_view(request):
@@ -18,21 +19,18 @@ def picture_view(request):
         return render(request, template, context)
     
     form = PictureForm(request.POST)
-    init_name = form.data['name']
-    form.data._mutable = True
-    form.data['name'] = init_name.strip(' ')
-    form.data._mutable = False
 
     if form.is_valid():
         name = form.data['name']
-        form.save()
+        my_picture = form.save()
 
-        my_picture = Pictures.objects.filter(name__exact=name)[0]
+        my_picture = get_object_or_404(Pictures, id=my_picture.id)
 
         gpt_return = GPT_function(name)
 
-        if gpt_return == 'http://unavailable':
+        if 'http' not in str(gpt_return):
             my_picture.delete()
+            messages.warning(request, gpt_return)
             return redirect('pictures:index')
         
         my_picture.picture_url = gpt_return

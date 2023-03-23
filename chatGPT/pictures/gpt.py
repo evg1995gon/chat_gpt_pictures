@@ -20,8 +20,7 @@ def GPT_function(name):
         image_url = response['data'][0]['url']
         return image_url
     except Exception as e:
-        print(e)
-        return 'http://unavailable'
+        return e
 
 
 def creating_picture(obj):
