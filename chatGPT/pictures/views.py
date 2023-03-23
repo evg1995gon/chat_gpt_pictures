@@ -9,13 +9,12 @@ from django.contrib import messages
 def picture_view(request):
     template = 'pictures/index.html'
     title = 'AI Generated'
-
+    form = PictureForm()
+    context = {
+        'form': PictureForm,
+        'title': title
+    }
     if request.method != 'POST':
-        form = PictureForm()
-        context = {
-            'form': PictureForm,
-            'title': title
-        }
         return render(request, template, context)
     
     form = PictureForm(request.POST)
