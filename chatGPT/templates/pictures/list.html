@@ -10,7 +10,7 @@
     </div>
 
     <div class="row">
-      {% for object in objects %}
+      {% for object in page_obj %}
         <div class="col-md-4 col-sm-6 mb-4 d-flex align-items-stretch">
           <div class="card">
             <a href="{% url 'pictures:detail' object.id %}" >
@@ -28,7 +28,7 @@
     </div>
   </div>
   <a href="{% url 'pictures:index' %}" class="d-flex btn btn-lg btn-primary my-5 flex-grow-1 justify-content-center col-11 mx-auto">Generation Page</a>
-
-  {% comment %} {% include 'pictures/includes/pagination.html'%} {% endcomment %}
-
+  <div class="d-flex my-5 flex-grow-1 justify-content-center col-11 mx-auto">
+    {% include 'includes/pagination.html' %}
+    <div>
 {% endblock %}

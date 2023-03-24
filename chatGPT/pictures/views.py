@@ -4,6 +4,8 @@ from django.db.models import Q
 from pictures.models import Pictures
 from pictures.gpt import GPT_function, creating_picture
 from django.contrib import messages
+from django.core.paginator import Paginator
+from django.conf import settings
 
 
 def picture_view(request):
@@ -40,9 +42,13 @@ def picture_view(request):
 
 
 def picture_view_list(request):
-    objects = Pictures.objects.all()
+    picture_objects = Pictures.objects.all()
+    
+    page_number = request.GET.get('page')
+    paginator = Paginator(picture_objects, settings.PAGINATOR_NUMBER)
+    page_obj = paginator.get_page(page_number)
     context = {
-        'objects': objects
+        'page_obj': page_obj,
     }
     template = 'pictures/list.html'
     return render(request, template, context)
