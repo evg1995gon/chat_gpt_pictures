@@ -67,3 +67,5 @@ def picture_clear(request):
     pics = Pictures.objects.filter(Q(picture_url='') | Q(picture=''))
     pics.delete()
     return redirect('pictures:list')
+
+a  = 1
